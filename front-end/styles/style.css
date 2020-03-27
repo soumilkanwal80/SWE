@@ -1,0 +1,165 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+.img0{
+	background: url("b.jpg") no-repeat;
+	background-size: cover;
+	height: 100%;
+	background-attachment: fixed;
+	overflow: hidden;/*this has eliminated the problem of downward shifting of background which result in white patch below navbar*/
+}
+
+
+#nav{
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 64px;
+	background: #7a939c;
+	transition: .2s;
+}
+
+#nav ul{
+	float: left;
+	margin-left: 20px;
+}
+
+#nav ul li{
+	float: left;
+	list-style: none;
+	position: relative;
+}
+
+#nav ul li:hover{
+	background: #a2c6d8;
+}
+
+#nav ul li a{
+	display: block;
+	color: black;
+	padding: 22px 14px;
+	text-decoration: none;
+}
+
+#nav ul ul li .over{
+	padding: 21px 14px 22px 14px; /* this is to eliminate extended size by the html symbol &#9656 and extended size by symbol &#9662 is elimited by increasing the padding of(ul li a)*/
+}
+
+#nav ul ul{
+	position: absolute;
+	display: none;
+	margin: -1px 0px 0px 0px;
+	background: #7a939c;
+	padding: 0px 0px;
+}
+
+#nav ul li:hover > ul{ /* here > size is implementing the hover on every unordered list after the (ul li) */
+	display: block;
+}
+
+#nav ul ul a {
+	width: 300px;
+}
+
+#nav ul ul ul{
+	margin-left: 328px;
+	top: 1px;
+}
+
+form{
+	background: rgba(122,147,156,0.6);
+	width: 450px;
+	padding: 20px 0px 20px 0px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30vh;
+	margin-bottom: 40vh;
+	border-radius: 4px;
+}
+
+form input[type=text], input[type=password]{
+	display: block;
+	padding: 10px;
+	height: 50px;
+	border: none;
+	width: 350px;
+	border-bottom: 1px solid blue;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+form input[type=submit], input[type=button]{
+	display: block;
+	border: none;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	padding: 5px;
+	width: 150px;
+	margin: 10px auto;
+	background: #7a939c;
+	border-radius: 3px;
+}
+
+form input[type=submit]:hover, input[type=button]:hover{
+	background: #a2c6d8;
+	transition: .5s;
+	width: 155px;
+}
+
+.active{
+	background: #a2c6d8;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  transform: translate(-50%, -50%);
+}
+.image {
+  display: block;
+  background-size: cover;
+  background-attachment: fixed;
+  width:100%;
+}
+.overlay {
+  position: absolute;
+  bottom:0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height:0%;
+  transition: .5s ease;
+}
+.container:hover .overlay {
+  bottom: 0;
+  height: 92%;
+}
+.text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
