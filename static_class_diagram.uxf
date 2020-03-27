@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>370</y>
+      <w>170</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>User
+--
+-username
+-password
+--
+-check_username()
+-check_password()
+-User()//create new user
+-check_admin()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>120</y>
+      <w>170</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Login
+--
+-username
+-password
+--
+-enter_username()
+-enter_password()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>220</y>
+      <w>30</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>340</y>
+      <w>200</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Home Screen
+--
+-target_images
+-target_motion_file
+-source_images
+-source_videos
+-time slot
+--
+-get_target_image()
+-get_target_video()
+-get_source_image()
+-get_source_video()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>190</y>
+      <w>200</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Add target
+--
+-target_images
+-target_motion_file
+-target_info
+--
+-get_target_image()
+-get_target_video()
+-search_target()
+-delete_target()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>550</y>
+      <w>200</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Add source
+--
+-source_images
+-source_videos
+-time slot
+--
+-get_source_image()
+-get_source_video()
+-set_time_slot()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>380</y>
+      <w>200</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Results
+--
+-matches
+--
+-run_search()
+-exit()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>440</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>270</y>
+      <w>90</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;</panel_attributes>
+    <additional_attributes>10.0;140.0;40.0;140.0;40.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>400</y>
+      <w>60</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>40.0;200.0;10.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>460</y>
+      <w>150</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>130.0;10.0;130.0;150.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>380</x>
+      <y>30</y>
+      <w>190</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Static Class Diagram
+halign=center
+valign=center</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>260</y>
+      <w>150</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0;130.0;120.0</additional_attributes>
+  </element>
+</diagram>
