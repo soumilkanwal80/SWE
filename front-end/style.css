@@ -4,7 +4,7 @@
 }
 
 .img0{
-	background: url("b.jpg") no-repeat;
+	background: url("background_image.jpg") no-repeat;
 	background-size: cover;
 	height: 100%;
 	background-attachment: fixed;
