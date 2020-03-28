@@ -26,6 +26,26 @@ def faceRecognitionImage(targetImage, personImage):
             return True
     return False
 
+# targetVideo - cv2 captured video in which you have to identify a person
+# personImage - a list of images of person to be identified
+# A function that takes a target video and identifies whether the given person is present in it or not
+def faceRecognitionVideo(targetVideo, personImage):
+    personEncoding = generateEncodings(personImage)
+    while targetVideo.isOpened():
+        print("Frame")
+        ret, frame = targetVideo.read()
+        if not ret:
+            print("Error")
+            return "Error"
+
+        target = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        targetEncodings = generateEncodings([target])
+        for encoding in targetEncodings:
+            matches = face_recognition.compare_faces(personEncoding, encoding)
+            print(matches)
+            if True in matches:
+                return True
+    return False
 
 # person = cv2.imread('./person.png')
 # person = cv2.cvtColor(person, cv2.COLOR_BGR2RGB)
