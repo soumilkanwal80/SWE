@@ -36,5 +36,23 @@ def faces():
     return render_template('faces.html')
 
 
+@app.route('/select_target')
+def select_target():
+	file = easygui.fileopenbox()
+
+	while True:
+		frame = cv2.imread(file)
+
+		cv2.imshow('frame',frame)
+
+		key = cv2.waitKey(1)
+
+		if key == 27:
+			break	
+
+	cv2.destroyAllWindows()
+	return render_template('faces.html')    
+
+
 if __name__ == '__main__':
 	app.run(debug=True)    
