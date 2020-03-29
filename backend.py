@@ -47,9 +47,19 @@ def faceRecognitionVideo(targetVideo, personImage):
                 return True
     return False
 
-# person = cv2.imread('./person.png')
-# person = cv2.cvtColor(person, cv2.COLOR_BGR2RGB)
-# target = cv2.imread('./target2.jpg')
-# target = cv2.cvtColor(target, cv2.COLOR_BGR2RGB)
-# if person is not None and target is not None:
-#     print(faceRecognitionImage(target, [person]))
+person=[]
+folder="images"
+for filename in os.listdir(folder):
+    img = cv2.imread(os.path.join(folder,filename))
+    img= cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    if img is not None:
+        person.append(img)
+target=[]
+folder="target"
+for filename in os.listdir(folder):
+    img = cv2.imread(os.path.join(folder,filename))
+    img= cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    if img is not None:
+        target.append(img)
+if person is not None and target is not None:
+    print(faceRecognitionImage(target, person))
