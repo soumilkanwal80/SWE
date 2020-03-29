@@ -43,7 +43,7 @@ def select_target():
 
 	file = easygui.fileopenbox()
 	frame = cv2.imread(file)
-	cv2.imshow('frame',frame)
+	
 	number=cpt+1
 	filename=str(number)+'.jpg'
 	path = './images'
