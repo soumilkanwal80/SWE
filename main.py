@@ -18,7 +18,7 @@
 from flask import Flask,render_template
 import easygui
 import cv2
-
+import os
 
 
 app = Flask(__name__)
@@ -35,21 +35,19 @@ def home_page():
 def faces():
     return render_template('faces.html')
 
-
+@app.route('/')
 @app.route('/select_target')
 def select_target():
+	cpt = sum([len(files) for r, d, files in os.walk("images")])
+
+
 	file = easygui.fileopenbox()
-
-	while True:
-		frame = cv2.imread(file)
-
-		cv2.imshow('frame',frame)
-
-		key = cv2.waitKey(1)
-
-		if key == 27:
-			break	
-
+	frame = cv2.imread(file)
+	cv2.imshow('frame',frame)
+	number=cpt+1
+	filename=str(number)+'.jpg'
+	path = './images'
+	cv2.imwrite(os.path.join(path , filename), frame)
 	cv2.destroyAllWindows()
 	return render_template('faces.html')    
 
