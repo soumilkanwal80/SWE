@@ -1,9 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Faces appear here</title>
-</head>
-<body>
-	<h1>Faces appear here!!!</h1>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/homepage.css') }}">
+	</head>
+	<body>
+	<div id="nav">
+				<ul>
+					<li><a href="home.html">HOME</a></li>
+					<li class ="active"><a href="faces.html">FACES</a></li>					
+					<li><a href="workflow.html">WORKFLOW</a></li>
+					<li><a href="input.html">INPUT</a></li>
+				</ul>
+			</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<button onclick="myFunction()">Choose Image</button>
+	
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+</script>
+		
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
