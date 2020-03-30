@@ -19,6 +19,30 @@
 	<br>
 	<br>
 	<a href="select_input">Choose Image</a>
+
+	<div id = "image_display">
+	<script type="text/javascript">
+		let main = document.getElementById('image_display')
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "target/1.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "target/2.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "target/3.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "target/4.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "target/5.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "target/6.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "target/7.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "target/8.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "target/9.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "target/10.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		// var i
+		// for (i=1;i<5;i++){
+		// 	// console.log(i)
+		// 	// img = 'image/' + i + '.jpeg'
+		// 	// console.log(img)
+		// 	// console.log(`<img src = "{{ url_for("static", filename = "img") }}" alt = "Image appears here">`)
+		// 	var stmt = '<img src = "{{ url_for("static", filename = "images/1.jpeg") }}" alt = "Image appears here">'
+		// 	main.innerHTML = main.innerHTML + stmt
+		// }
+	</script>
 	
 
 		
