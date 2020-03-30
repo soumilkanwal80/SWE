@@ -79,6 +79,16 @@ def workflow():
     return render_template('workflow.html')
 
 @app.route('/')
+@app.route('/generateEncodingsSingle')
+def generateEncodingsSingle(personImage):
+    finalEncodings = []
+    boxes = face_recognition.face_locations(personImage, model = 'hog')
+    encodings = face_recognition.face_encodings(personImage, boxes)
+    for encoding in encodings:
+        finalEncodings.append(encoding)    
+    return finalEncodings
+
+@app.route('/')
 @app.route('/generateEncodings')
 def generateEncodings(personImages):
     finalEncodings = []
@@ -89,14 +99,13 @@ def generateEncodings(personImages):
             finalEncodings.append(encoding)
     return finalEncodings
 
-
 # targetImage - cv2 image in which you have to identify a person
 # personImage - a list of images of person to be identified
 # A function that takes a target image and list of images of a person and returns True or False depending on person is present in target image or not
 @app.route('/')
 @app.route('/faceRecognitionImage')
 def faceRecognitionImage(targetImage, personImage):
-    personEncoding = generateEncodings(personImage)
+    personEncoding = generateEncodingsSingle(personImage)
     targetEncodings = generateEncodings(targetImage)
 
     for encoding in targetEncodings:
@@ -121,11 +130,21 @@ def run_workflow():
 	    img= cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 	    if img is not None:
 	        target.append(img)
+	flag=0
 	if person is not None and target is not None:
-		if(faceRecognitionImage(target, person)):
-			return render_template('workflow1.html')
-		else:
-			return render_template('workflow2.html')
+		for i in person:
+			if(faceRecognitionImage(target, i)):
+				cpt = sum([len(files) for r, d, files in os.walk("static/detected")])
+				number=cpt+1
+				filename=str(number)+'.jpg'
+				path = './static/detected'
+				cv2.imwrite(os.path.join(path , filename), i)
+				flag=1
+				
+	if(flag):
+		return render_template('workflow1.html')
+	else:
+		return render_template('workflow2.html')
 
 if __name__ == '__main__':
 	app.run(debug=True)    
