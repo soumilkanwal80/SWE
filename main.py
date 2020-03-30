@@ -39,7 +39,7 @@ def faces():
 @app.route('/')
 @app.route('/select_target')
 def select_target():
-	cpt = sum([len(files) for r, d, files in os.walk("images")])
+	cpt = sum([len(files) for r, d, files in os.walk("static/images")])
 
 
 	file = easygui.fileopenbox()
@@ -47,10 +47,10 @@ def select_target():
 	
 	number=cpt+1
 	filename=str(number)+'.jpg'
-	path = './images'
+	path = './static/images'
 	cv2.imwrite(os.path.join(path , filename), frame)
 	cv2.destroyAllWindows()
-	return render_template('faces.html')    
+	return render_template('faces.html', number = number)    
 
 @app.route('/input')
 @app.route('/input.html')
@@ -60,7 +60,7 @@ def input():
 @app.route('/')
 @app.route('/select_input')
 def select_input():
-	cpt = sum([len(files) for r, d, files in os.walk("target")])
+	cpt = sum([len(files) for r, d, files in os.walk("static/target")])
 
 
 	file = easygui.fileopenbox()
@@ -68,7 +68,7 @@ def select_input():
 	
 	number=cpt+1
 	filename=str(number)+'.jpg'
-	path = './target'
+	path = './static/target'
 	cv2.imwrite(os.path.join(path , filename), frame)
 	cv2.destroyAllWindows()
 	return render_template('input.html')
@@ -108,14 +108,14 @@ def faceRecognitionImage(targetImage, personImage):
 @app.route('/run_workflow')
 def run_workflow():
 	person=[]
-	folder="images"
+	folder="static/images"
 	for filename in os.listdir(folder):
 	    img = cv2.imread(os.path.join(folder,filename))
 	    img= cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 	    if img is not None:
 	        person.append(img)
 	target=[]
-	folder="target"
+	folder="static/target"
 	for filename in os.listdir(folder):
 	    img = cv2.imread(os.path.join(folder,filename))
 	    img= cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
