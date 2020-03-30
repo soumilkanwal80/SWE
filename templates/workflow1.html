@@ -9,8 +9,8 @@
 				<ul>
 					<li><a href="home.html">HOME</a></li>
 					<li><a href="faces.html">FACES</a></li>					
-					<li class ="active"><a href="workflow.html">WORKFLOW</a></li>
-					<li><a href="input.html">INPUT</a></li>
+					<li><a href="workflow.html">WORKFLOW</a></li>
+					<li class ="active"><a href="input.html">INPUT</a></li>
 				</ul>
 			</div>
 	<br>
@@ -18,9 +18,39 @@
 	<br>
 	<br>
 	<br>
-	<p>Face detected</p>
+	<!-- <a href="select_input">Choose Image</a> -->
+
+	<h3>In the given source</h3><br>
+	<img src = "{{ url_for("static", filename = "target/1.jpg") }}" alt = "Image here" width = "400" height = "400"><br>	
+
+	<h3>Following faces were detected</h3>
+
+	<div id = "image_display">
+	<script type="text/javascript">
+		let main = document.getElementById('image_display')
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "detected/1.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "detected/2.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "detected/3.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "detected/4.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "detected/5.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "detected/6.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "detected/7.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "detected/8.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "detected/9.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "detected/10.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
+		// var i
+		// for (i=1;i<5;i++){
+		// 	// console.log(i)
+		// 	// img = 'image/' + i + '.jpeg'
+		// 	// console.log(img)
+		// 	// console.log(`<img src = "{{ url_for("static", filename = "img") }}" alt = "Image appears here">`)
+		// 	var stmt = '<img src = "{{ url_for("static", filename = "images/1.jpeg") }}" alt = "Image appears here">'
+		// 	main.innerHTML = main.innerHTML + stmt
+		// }
+	</script>
 	
 
+		
 </body>
 </html>
 
