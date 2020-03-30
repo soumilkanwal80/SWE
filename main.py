@@ -19,7 +19,8 @@ from flask import Flask,render_template
 import easygui
 import cv2
 import os
-
+import dlib
+import face_recognition
 
 app = Flask(__name__)
 
@@ -78,6 +79,32 @@ def workflow():
     return render_template('workflow.html')
 
 @app.route('/')
+@app.route('/generateEncodings')
+def generateEncodings(personImages):
+    finalEncodings = []
+    for i in personImages:
+        boxes = face_recognition.face_locations(i, model = 'hog')
+        encodings = face_recognition.face_encodings(i, boxes)
+        for encoding in encodings:
+            finalEncodings.append(encoding)
+    return finalEncodings
+
+
+# targetImage - cv2 image in which you have to identify a person
+# personImage - a list of images of person to be identified
+# A function that takes a target image and list of images of a person and returns True or False depending on person is present in target image or not
+@app.route('/')
+@app.route('/faceRecognitionImage')
+def faceRecognitionImage(targetImage, personImage):
+    personEncoding = generateEncodings(personImage)
+    targetEncodings = generateEncodings(targetImage)
+
+    for encoding in targetEncodings:
+        matches = face_recognition.compare_faces(personEncoding, encoding)
+        if True in matches:
+            return True
+    return False
+@app.route('/')
 @app.route('/run_workflow')
 def run_workflow():
 	person=[]
@@ -94,7 +121,11 @@ def run_workflow():
 	    img= cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 	    if img is not None:
 	        target.append(img)
-	return render_template('workflow.html')
+	if person is not None and target is not None:
+		if(faceRecognitionImage(target, person)):
+			return render_template('workflow1.html')
+		else:
+			return render_template('workflow2.html')
 
 if __name__ == '__main__':
 	app.run(debug=True)    
