@@ -146,6 +146,28 @@ def run_workflow():
 	            shutil.rmtree(file_path)
 	    except Exception as e:
         	print('Failed to delete %s. Reason: %s' % (file_path, e))
+
+	folder = 'static/images'
+	for filename in os.listdir(folder):
+	    file_path = os.path.join(folder, filename)
+	    try:
+	        if os.path.isfile(file_path) or os.path.islink(file_path):
+	            os.unlink(file_path)
+	        elif os.path.isdir(file_path):
+	            shutil.rmtree(file_path)
+	    except Exception as e:
+        	print('Failed to delete %s. Reason: %s' % (file_path, e))
+
+	folder = 'static/target'
+	for filename in os.listdir(folder):
+	    file_path = os.path.join(folder, filename)
+	    try:
+	        if os.path.isfile(file_path) or os.path.islink(file_path):
+	            os.unlink(file_path)
+	        elif os.path.isdir(file_path):
+	            shutil.rmtree(file_path)
+	    except Exception as e:
+        	print('Failed to delete %s. Reason: %s' % (file_path, e))
 	if person is not None and target is not None:
 		for i in person:
 			if(faceRecognitionImage(target, i)):
