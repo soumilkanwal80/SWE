@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/homepage.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/faces.css') }}">
 	</head>
 	<body>
 	<div id="nav">
@@ -13,12 +13,19 @@
 					<li><a href="input.html">INPUT</a></li>
 				</ul>
 			</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<a href="run_workflow">Start Recognition</a>
+
+			<br>
+			<br>
+			<br>
+			<br>
+			<br><br>
+
+			<br>
+	<div id = "image_display" class="container">
+			<div class = "button_container">
+				<button class = "upload" onclick="window.location.href = 'run_workflow';"><p class = "button_text">Start Workflow</p></button>	
+			</div>
+		</div>
 	
 
 </body>
