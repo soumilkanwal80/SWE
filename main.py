@@ -120,14 +120,14 @@ def run_workflow():
 	folder="static/images"
 	for filename in os.listdir(folder):
 	    img = cv2.imread(os.path.join(folder,filename))
-	    img= cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+	    #img= cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 	    if img is not None:
 	        person.append(img)
 	target=[]
 	folder="static/target"
 	for filename in os.listdir(folder):
 	    img = cv2.imread(os.path.join(folder,filename))
-	    img= cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+	    #img= cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 	    if img is not None:
 	        target.append(img)
 	flag=0
