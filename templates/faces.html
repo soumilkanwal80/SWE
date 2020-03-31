@@ -2,7 +2,9 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/homepage.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/faces.css') }}">
+
+
 	</head>
 	<body>
 	<div id="nav">
@@ -13,35 +15,38 @@
 					<li><a href="input.html">INPUT</a></li>
 				</ul>
 			</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<a href="select_target">Choose Image</a>
-	<div id = "image_display">
-	<script type="text/javascript">
-		let main = document.getElementById('image_display')
-		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "images/1.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
-		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "images/2.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
-		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "images/3.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
-		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "images/4.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
-		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "images/5.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
-		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "images/6.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
-		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "images/7.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
-		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "images/8.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
-		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "images/9.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
-		main.innerHTML = main.innerHTML + '<img src = "{{ url_for("static", filename = "images/10.jpg") }}" alt = "Image here" width = "400" height = "400"><br>'
-		// var i
-		// for (i=1;i<5;i++){
-		// 	// console.log(i)
-		// 	// img = 'image/' + i + '.jpeg'
-		// 	// console.log(img)
-		// 	// console.log(`<img src = "{{ url_for("static", filename = "img") }}" alt = "Image appears here">`)
-		// 	var stmt = '<img src = "{{ url_for("static", filename = "images/1.jpeg") }}" alt = "Image appears here">'
-		// 	main.innerHTML = main.innerHTML + stmt
-		// }
-	</script>
+
+
+	<div class = "img0">
+		<br>
+		<div id = "image_display" class="container">
+			<div class = "button_container">
+				<button class = "upload" onclick="window.location.href = 'select_target';"><p class = "button_text">Choose Image</p></button>	
+			</div>
+			<script type="text/javascript">
+				let main = document.getElementById('image_display')
+					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "images/1.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
+					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "images/2.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
+					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "images/3.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
+					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "images/4.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
+					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "images/5.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
+					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "images/6.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
+					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "images/7.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
+					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "images/8.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
+					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "images/9.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
+					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "images/10.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
+					// var i
+					// for (i=1;i<5;i++){
+					// 	// console.log(i)
+					// 	// img = 'image/' + i + '.jpeg'
+					// 	// console.log(img)
+					// 	// console.log(`<img src = "{{ url_for("static", filename = "img") }}" alt = "Image appears here">`)
+					// 	var stmt = '<img src = "{{ url_for("static", filename = "images/1.jpeg") }}" alt = "Image appears here">'
+					// 	main.innerHTML = main.innerHTML + stmt
+					// }
+				</script>
+		</div>
+	</div>
 	
 		
 </body>
