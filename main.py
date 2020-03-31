@@ -21,8 +21,13 @@ import cv2
 import os
 import dlib
 import face_recognition
+# from flask_caching import Cache
+
 
 app = Flask(__name__)
+# cache = Cache(app,config={'CACHE_TYPE': 'null'})
+# cache.init_app(app)
+
 
 @app.route('/')
 @app.route('/home')
@@ -145,6 +150,11 @@ def run_workflow():
 		return render_template('workflow1.html')
 	else:
 		return render_template('workflow2.html')
+
+
+@app.route('/test.html')
+def test_css():
+	return render_template('test.html')	
 
 if __name__ == '__main__':
 	app.run(debug=True)    

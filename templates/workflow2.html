@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/homepage.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/faces.css') }}">
 	</head>
 	<body>
 	<div id="nav">
@@ -18,7 +18,20 @@
 	<br>
 	<br>
 	<br>
-	<p>Face not detected</p>
+	<div class = "result_container">
+		<button class = "textbox" onclick="window.location.href = 'select_target';"><p class = "button_text"><p>Given Source</p></button>
+		<img src = "{{ url_for("static", filename = "target/1.jpg") }}" alt = "Image here" width = "400" height = "400"><br>	
+	</div>
+
+
+	<div>
+		<br>
+		<div id = "image_display" class="container">
+			<div class = "button_container">
+				<button class = "upload" onclick="window.location.href = 'select_target';"><p class = "button_text"><p>No images were detected</p></button>	
+			</div>
+		</div>
+	</div>
 	
 
 </body>
