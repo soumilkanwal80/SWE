@@ -21,25 +21,16 @@
 			</div>
 			<script type="text/javascript">
 				let main = document.getElementById('image_display')
-					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "target/1.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
-					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "target/2.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
-					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "target/3.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
-					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "target/4.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
-					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "target/5.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
-					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "target/6.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
-					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "target/7.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
-					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "target/8.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
-					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "target/9.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
-					main.innerHTML = main.innerHTML + '<div class = "images"><img src = "{{ url_for("static", filename = "target/10.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>'
-					// var i
-					// for (i=1;i<5;i++){
-					// 	// console.log(i)
-					// 	// img = 'image/' + i + '.jpeg'
-					// 	// console.log(img)
-					// 	// console.log(`<img src = "{{ url_for("static", filename = "img") }}" alt = "Image appears here">`)
-					// 	var stmt = '<img src = "{{ url_for("static", filename = "images/1.jpeg") }}" alt = "Image appears here">'
-					// 	main.innerHTML = main.innerHTML + stmt
-					// }
+
+					console.log({{number}})
+
+					var count = {{number}} 
+					console.log('count:' + count)
+					var i
+					for (i=1;i<=count;i++){
+						j = i.toString()
+						main.innerHTML = main.innerHTML + `<div class = "images"><img src ="/static/target/` + j + `.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>`
+					}
 				</script>
 		</div>
 	</div>

@@ -38,8 +38,11 @@ def home_page():
 
 @app.route('/faces')
 @app.route('/faces.html')
+@app.route('/faces.html/<number>')
 def faces():
-    return render_template('faces.html')
+    cpt = sum([len(files) for r, d, files in os.walk("static/images")])
+    # number=cpt+1
+    return render_template('faces.html', number = cpt)
 
 @app.route('/')
 @app.route('/select_target')
@@ -59,8 +62,10 @@ def select_target():
 
 @app.route('/input')
 @app.route('/input.html')
+@app.route('/input.html/<number>')
 def input():
-    return render_template('input.html')
+    cpt = sum([len(files) for r, d, files in os.walk("static/target")])
+    return render_template('input.html', number = cpt)
 
 @app.route('/')
 @app.route('/select_input')
@@ -76,12 +81,13 @@ def select_input():
 	path = './static/target'
 	cv2.imwrite(os.path.join(path , filename), frame)
 	cv2.destroyAllWindows()
-	return render_template('input.html')
+	return render_template('input.html', number = number)
 
 @app.route('/workflow')
 @app.route('/workflow.html')
 def workflow():
     return render_template('workflow.html')
+
 
 @app.route('/')
 @app.route('/generateEncodingsSingle')
@@ -120,6 +126,7 @@ def faceRecognitionImage(targetImage, personImage):
     return False
 @app.route('/')
 @app.route('/run_workflow')
+@app.route('/run_workflow/<number>')
 def run_workflow():
 	person=[]
 	folder="static/images"
@@ -179,7 +186,7 @@ def run_workflow():
 				flag=1
 				
 	if(flag):
-		return render_template('workflow1.html')
+		return render_template('workflow1.html', number = number)
 	else:
 		return render_template('workflow2.html')
 
