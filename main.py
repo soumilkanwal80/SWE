@@ -21,12 +21,18 @@ import cv2
 import os
 import dlib
 import face_recognition
-# from flask_caching import Cache
+from flask_caching import Cache
 
 
 app = Flask(__name__)
-# cache = Cache(app,config={'CACHE_TYPE': 'null'})
-# cache.init_app(app)
+
+config = {
+    "DEBUG": True,          # some Flask specific configs
+    "CACHE_TYPE": "null", # Flask-Caching related configs
+}
+
+app.config.from_mapping(config)
+cache = Cache(app)
 
 
 @app.route('/')
