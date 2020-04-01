@@ -48,7 +48,7 @@ def home_page():
 def faces():
     cpt = sum([len(files) for r, d, files in os.walk("static/images")])
     # number=cpt+1
-    return render_template('faces.html', number = cpt)
+    return render_template('faces.html', number = cpt, flag = 1)
 
 @app.route('/')
 @app.route('/select_target')
@@ -59,10 +59,10 @@ def select_target():
 	file = easygui.fileopenbox()
 
 	if file == None:
-		return render_template('faces.html', number = cpt)
+		return render_template('faces.html', number = cpt, flag = 0)
 
 	if file.lower().endswith(('.png', '.jpg', '.jpeg')) == False:
-		return render_template('faces.html', number = cpt)	
+		return render_template('faces.html', number = cpt, flag=-1)	
 	
 	frame = cv2.imread(file)
 	
@@ -71,14 +71,14 @@ def select_target():
 	path = './static/images'
 	cv2.imwrite(os.path.join(path , filename), frame)
 	cv2.destroyAllWindows()
-	return render_template('faces.html', number = number)    
+	return render_template('faces.html', number = number, flag = 1)    
 
 @app.route('/input')
 @app.route('/input.html')
 @app.route('/input.html/<number>')
 def input():
     cpt = sum([len(files) for r, d, files in os.walk("static/target")])
-    return render_template('input.html', number = cpt)
+    return render_template('input.html', number = cpt, flag = 1)
 
 @app.route('/')
 @app.route('/select_input')
@@ -88,10 +88,11 @@ def select_input():
 
 	file = easygui.fileopenbox()
 	if file == None:
-		return render_template('input.html', number = cpt)
+		# flash('No image selected')
+		return render_template('input.html', number = cpt, flag = 0)
 
 	if file.lower().endswith(('.png', '.jpg', '.jpeg')) == False:
-		return render_template('input.html', number = cpt)		
+		return render_template('input.html', number = cpt, flag = -1)		
 	
 	frame = cv2.imread(file)
 	
@@ -100,7 +101,7 @@ def select_input():
 	path = './static/target'
 	cv2.imwrite(os.path.join(path , filename), frame)
 	cv2.destroyAllWindows()
-	return render_template('input.html', number = number)
+	return render_template('input.html', number = number, flag = 1)
 
 @app.route('/workflow')
 @app.route('/workflow.html')

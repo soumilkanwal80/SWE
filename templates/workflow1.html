@@ -42,10 +42,25 @@
 					var count = {{number}} 
 					console.log('count:' + count)
 					var i
-					for (i=1;i<=count;i++){
+					if(count > 0){
+						for (i=1;i<=count;i++){
 						j = i.toString()
 						main.innerHTML = main.innerHTML + `<div class = "images"><img src ="/static/detected/` + j + `.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>`
+						}	
 					}
+
+					else{
+						main.innerHTML += 
+						`<div>
+							<br>
+							<div id = "image_display" class="container">
+								<div class = "button_container">
+									<button class = "upload" onclick="window.location.href = 'select_target';"><p class = "button_text"><p>No images were detected</p></button>	
+								</div>
+							</div>
+						</div>`
+					}
+					
 				</script>
 		</div>
 	</div>

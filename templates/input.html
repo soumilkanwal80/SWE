@@ -37,6 +37,20 @@
 		</div>
 	</div>
 
+	<script type="text/javascript">
+		console.log('flag:' + {{ flag }})
+
+		var type = {{ flag }}
+
+		if(type == 0){
+			alert('No image chosen')
+		}
+
+		else if (type == -1){
+			alert('Only .png, .jpg, .jpeg formats are allowed')
+		}
+	</script>
+
 		
 </body>
 </html>
