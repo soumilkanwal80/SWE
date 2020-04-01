@@ -206,7 +206,7 @@ def run_workflow():
 				flag=1
 
 		for i in target:
-			cv2.imwrite(os.path.join('./static/detected', 'target.jpg'), i)		
+			cv2.imwrite(os.path.join('./static/detected', 'target.jpg'), i)			
 				
 	if(flag):
 		return render_template('workflow1.html', number = number)
