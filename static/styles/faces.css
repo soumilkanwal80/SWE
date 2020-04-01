@@ -81,11 +81,11 @@ body{
 	top: 1px;
 }
 
-.upload{
-	background-color: green;
-	padding: 20px 50px;
-	margin: 50px;
-	border-radius: 30px
+.upload {
+    background-color: green;
+    padding: 20px 50px;
+    margin: 100px;
+    border-radius: 30px;
 }
 
 .container{

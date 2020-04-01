@@ -57,6 +57,13 @@ def select_target():
 
 
 	file = easygui.fileopenbox()
+
+	if file == None:
+		return render_template('faces.html', number = cpt)
+
+	if file.lower().endswith(('.png', '.jpg', '.jpeg')) == False:
+		return render_template('faces.html', number = cpt)	
+	
 	frame = cv2.imread(file)
 	
 	number=cpt+1
@@ -80,6 +87,12 @@ def select_input():
 
 
 	file = easygui.fileopenbox()
+	if file == None:
+		return render_template('input.html', number = cpt)
+
+	if file.lower().endswith(('.png', '.jpg', '.jpeg')) == False:
+		return render_template('input.html', number = cpt)		
+	
 	frame = cv2.imread(file)
 	
 	number=cpt+1
