@@ -35,8 +35,7 @@ def faceRecognitionVideo(targetVideo, personImage):
         print("Frame")
         ret, frame = targetVideo.read()
         if not ret:
-            print("Error")
-            return "Error"
+            break
 
         target = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         targetEncodings = generateEncodings([target])
