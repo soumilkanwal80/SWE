@@ -19,7 +19,7 @@
 	<div>
 		<div id = "image_display" class="container">
 			<div class = "button_container">
-				<button class = "upload" onclick="window.location.href = 'select_input';"><p class = "button_text">Choose Image</p></button>	
+				<button class = "upload" onclick="window.location.href = 'select_input';"><p class = "button_text">Choose Target Images</p></button>	
 			</div>
 			<script type="text/javascript">
 				let main = document.getElementById('image_display')
@@ -33,6 +33,18 @@
 						j = i.toString()
 						main.innerHTML = main.innerHTML + `<div class = "images"><img src ="/static/target/` + j + `.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>`
 					}
+				</script>
+		</div>
+		<div id = "video_display" class="container">
+			<div class = "button_container">	
+				<button class = "upload" onclick="window.location.href = 'select_input_video';"><p class = "button_text">Choose Target Video</p></button>
+				<embed src="../static/target_video/output.avi"/>	
+				
+			</div>
+			<script type="text/javascript">
+				let main = document.getElementById('video_display')
+
+					
 				</script>
 		</div>
 	</div>
