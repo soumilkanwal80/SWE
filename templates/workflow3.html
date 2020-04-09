@@ -34,11 +34,9 @@
 	<div>
 		<br>
 		<div id = "video_display" class="container">
-			<div class = "button_container">
-				<button class = "upload" onclick="window.location.href = 'select_target';"><p class = "button_text"><p>Following images were detected</p></button>	
-			</div>
 			<script type="text/javascript">
 				let main = document.getElementById('video_display')
+
 
 					console.log({{number}})
 
@@ -46,9 +44,15 @@
 					console.log('count:' + count)
 					var i
 					if(count > 0){
+						main.innerHTML += `<div class = "button_container">
+						<button class = "upload" onclick="window.location.href = 'select_target';"><p class = "button_text"><p>Following images were detected</p></button>	
+						</div>`
 						for (i=1;i<=count;i++){
 						j = i.toString()
-						main.innerHTML = main.innerHTML + `<div class = "images"><img src ="/static/detected_video/` + j + `.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>`
+						main.innerHTML = main.innerHTML +`
+						<div class = "images">
+							<img src ="/static/detected_video/` + j + `.jpg") }}" alt = "Image here" width = "400" height = "400">
+						</div><br>`
 						}	
 					}
 

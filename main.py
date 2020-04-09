@@ -324,7 +324,8 @@ def run_workflow_video():
 	if(flag):
 		return render_template('workflow3.html', number = number)
 	else:
-		return render_template('workflow2.html')
+		number = 0
+		return render_template('workflow3.html', number = number)
 
 @app.route('/test.html')
 def test_css():
