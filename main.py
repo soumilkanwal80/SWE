@@ -22,6 +22,7 @@ import os
 import dlib
 import face_recognition
 from flask_caching import Cache
+from shutil import copyfile
 
 
 app = Flask(__name__)
@@ -117,23 +118,29 @@ def select_input_video():
 	if file.lower().endswith(('.mp4', '.mkv')) == False:
 		return render_template('input.html', number = cpt, flag = -1)		
 	
-	cap = cv2.VideoCapture(file)
-	frame_width = int(cap.get(3))
-	frame_height = int(cap.get(4))
+	# cap = cv2.VideoCapture(file)
+	# frame_width = int(cap.get(3))
+	# frame_height = int(cap.get(4))
 	
-	number=cpt+1
-	filename=str(number)+'.mp4'
-	path = './static/target'
-	out = cv2.VideoWriter('./static/target_video/output.avi',cv2.VideoWriter_fourcc('M','J','P','G'),60, (frame_width,frame_height))
-	while(True):
-		ret, frame = cap.read()
-		if ret==True:
-	  		out.write(frame)
-	  		if cv2.waitKey(1) & 0xFF == ord('q'):
-	  			break
-		else:
-			break 
-	cv2.destroyAllWindows()
+	# number=cpt+1
+	# filename=str(number)+'.mp4'
+	# path = './static/target'
+	# out = cv2.VideoWriter('./static/target_video/output.mp4',cv2.VideoWriter_fourcc('M','J','P','G'),60, (frame_width,frame_height))
+	# while(True):
+	# 	ret, frame = cap.read()
+	# 	if ret==True:
+	#   		out.write(frame)
+	#   		if cv2.waitKey(1) & 0xFF == ord('q'):
+	#   			break
+	# 	else:
+	# 		break 
+	# cv2.destroyAllWindows()
+	number = cpt + 1
+
+	copyfile(file, './static/target_video/output.mp4')
+
+
+
 	return render_template('input.html', number = number, flag = 1)
 
 @app.route('/workflow')
@@ -277,7 +284,7 @@ def run_workflow_video():
 	    if img is not None:
 	        person.append(img)
 	folder="static/target_video"
-	targetVideo=cv2.VideoCapture("./static/target_video/output.avi")
+	targetVideo=cv2.VideoCapture("./static/target_video/output.mp4")
 	flag=0
 	folder = 'static/detected_video'
 	for filename in os.listdir(folder):
