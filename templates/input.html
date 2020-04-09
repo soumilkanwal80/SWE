@@ -35,22 +35,36 @@
 					}
 				</script>
 		</div>
-		<div id = "video_display" class="container">
-			<div class = "button_container">	
-				<button class = "upload" onclick="window.location.href = 'select_input_video';"><p class = "button_text">Choose Target Video</p></button>
-				<!-- <embed src="../static/target_video/output.mp4"/>	 -->
-				<video width="500" height="500" controls>
-				    <source src='/static/target_video/output.mp4' type="video/mp4">
-				    Your browser does not support the video tag.
-			  	</video>
-				
-			</div>
-			<script type="text/javascript">
-				let main = document.getElementById('video_display')
 
-					
+		<div id = "video_display" class="container">
+			<div class = "button_container">
+				<button class = "upload" onclick="window.location.href = 'select_input_video';"><p class = "button_text">Choose Target Video</p></button>	
+			</div>
+
+			<script type="text/javascript">
+				let main_video = document.getElementById('video_display')
+
+					main_video.innerHTML = main_video.innerHTML + 
+				`<video width="500" height="500" controls>
+    			<source src="static/target_video/output.mp4" type="video/mp4">
+    			Your browser does not support the video tag.
+  				</video>`	
+
+				
+
+					// console.log({{number}})
+
+					// var count = {{number}} 
+					// console.log('count:' + count)
+					// var i
+					// for (i=1;i<=count;i++){
+					// 	j = i.toString()
+					// 	main.innerHTML = main.innerHTML + `<div class = "images"><img src ="/static/target/` + j + `.jpg") }}" alt = "Image here" width = "400" height = "400"></div><br>`
+					// }
 				</script>
 		</div>
+
+
 	</div>
 
 	<script type="text/javascript">

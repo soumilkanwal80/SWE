@@ -79,7 +79,7 @@ def select_target():
 @app.route('/input.html/<number>')
 def input():
     cpt = sum([len(files) for r, d, files in os.walk("static/target")])
-    return render_template('input.html', number = cpt, flag = 1)
+    return render_template('input.html', number = cpt, flag = 1, video_flag = 0)
 
 @app.route('/')
 @app.route('/select_input')
@@ -90,10 +90,10 @@ def select_input():
 	file = easygui.fileopenbox()
 	if file == None:
 		# flash('No image selected')
-		return render_template('input.html', number = cpt, flag = 0)
+		return render_template('input.html', number = cpt, flag = 0, video_flag = 0)
 
 	if file.lower().endswith(('.png', '.jpg', '.jpeg')) == False:
-		return render_template('input.html', number = cpt, flag = -1)		
+		return render_template('input.html', number = cpt, flag = -1, video_flag = 0)		
 	
 	frame = cv2.imread(file)
 	
@@ -102,7 +102,7 @@ def select_input():
 	path = './static/target'
 	cv2.imwrite(os.path.join(path , filename), frame)
 	cv2.destroyAllWindows()
-	return render_template('input.html', number = number, flag = 1)
+	return render_template('input.html', number = number, flag = 1, video_flag = 0)
 
 @app.route('/')
 @app.route('/select_input_video')
@@ -113,10 +113,10 @@ def select_input_video():
 	file = easygui.fileopenbox()
 	if file == None:
 		# flash('No image selected')
-		return render_template('input.html', number = cpt, flag = 0)
+		return render_template('input.html', number = cpt, flag = 0, video_flag = 0)
 
 	if file.lower().endswith(('.mp4', '.mkv')) == False:
-		return render_template('input.html', number = cpt, flag = -1)		
+		return render_template('input.html', number = cpt, flag = -1, video_flag = -1)		
 	
 	# cap = cv2.VideoCapture(file)
 	# frame_width = int(cap.get(3))
@@ -141,7 +141,7 @@ def select_input_video():
 
 
 
-	return render_template('input.html', number = number, flag = 1)
+	return render_template('input.html', number = number, flag = 1, video_flag = 1)
 
 @app.route('/workflow')
 @app.route('/workflow.html')
